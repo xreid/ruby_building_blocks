@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Object - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">BasicObject
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-caesar_cipher">#caesar_cipher</a>
+    
+    <li ><a href="#method-i-stock_picker">#stock_picker</a>
+    
+    <li ><a href="#method-i-substrings">#substrings</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Object">
+  <h1 id="class-Object" class="class">
+    class Object
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-caesar_cipher" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">caesar_cipher</span><span
+            class="method-args">(input_text, shift_factor)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encrypts text via a simple Caesar Cipher. Each letter in the text is
+shifted by a specified number. For example, “a” with a shift factor of 3 is
+“d”, and “a” with a shift factor of -3 is “x”.</p>
+<dl class="rdoc-list note-list"><dt><code>input_text</code>
+<dd>
+<p>Text to be encrypted</p>
+</dd><dt><code>shift</code>
+<dd>
+<p>Amount by which each character should be shifted</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="caesar_cipher-source">
+            <pre><span class="ruby-comment"># File caesar_cipher.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">caesar_cipher</span>(<span class="ruby-identifier">input_text</span>, <span class="ruby-identifier">shift_factor</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">input_text</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">String</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">shift_factor</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Fixnum</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Please enter a valid String (e.g. &#39;Sample text.&#39;) and Fixnum (e.g. 5).&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">letters</span> = (<span class="ruby-string">&#39;a&#39;</span><span class="ruby-operator">..</span><span class="ruby-string">&#39;z&#39;</span>).<span class="ruby-identifier">to_a</span>
+  <span class="ruby-identifier">input_characters</span> = <span class="ruby-identifier">input_text</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">input_characters</span>.<span class="ruby-identifier">map!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">character</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">index</span> = <span class="ruby-identifier">letters</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">character</span>.<span class="ruby-identifier">downcase</span>)
+    <span class="ruby-comment"># ignore all non letter characters</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">letters</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">character</span>.<span class="ruby-identifier">downcase</span>)
+      <span class="ruby-identifier">character</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Account for index + shift_factor exceeding the bounds of letters w/ %.</span>
+      <span class="ruby-identifier">new_position</span> = (<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">shift_factor</span>) <span class="ruby-operator">%</span> <span class="ruby-identifier">letters</span>.<span class="ruby-identifier">size</span>
+      <span class="ruby-comment"># maintain letter casing</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">upcase</span>
+        <span class="ruby-identifier">letters</span>[<span class="ruby-identifier">new_position</span>].<span class="ruby-identifier">upcase</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">letters</span>[<span class="ruby-identifier">new_position</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">input_characters</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stock_picker" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stock_picker</span><span
+            class="method-args">(prices)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recieves an array of Fixnums representing stock prices on consecutive days,
+and returns a two element array with the first element being the best day
+(index of the price) to buy and the second being the best day to sell in
+order to maximize profits.</p>
+
+<p>Sample:</p>
+
+<pre>[1, 2, 3, 4]
+=&gt; [0, 3]</pre>
+<dl class="rdoc-list note-list"><dt><code>prices</code>
+<dd>
+<p>an array stock prices on consecutive days (e.g. [5, 8, 6, 12, 13]).</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="stock_picker-source">
+            <pre><span class="ruby-comment"># File stock_picker.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stock_picker</span>(<span class="ruby-identifier">prices</span>)
+  <span class="ruby-comment"># handle erroneous input</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">prices</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Array</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;Please enter a valid array of prices (e.g. [1, 4, 2, 27]).&#39;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">price</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">price</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Fixnum</span>) }
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;Please enter a valid array of prices (e.g. [1, 4, 2, 27]).&#39;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">price</span><span class="ruby-operator">|</span> <span class="ruby-identifier">price</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> }
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">max</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&#39;The prices are the same each day!&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">max_profit</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">buy_date</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">sell_date</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">buy_price</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># increment within the index of the current buy_price and the end of the</span>
+    <span class="ruby-comment"># prices array.</span>
+    <span class="ruby-identifier">prices</span>[<span class="ruby-identifier">prices</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">buy_price</span>)<span class="ruby-operator">...</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sell_price</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">sell_price</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">buy_price</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_profit</span>
+        <span class="ruby-identifier">max_profit</span> = <span class="ruby-identifier">sell_price</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">buy_price</span>
+        <span class="ruby-identifier">buy_date</span> = <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">buy_price</span>)
+        <span class="ruby-identifier">sell_date</span> = <span class="ruby-identifier">prices</span>.<span class="ruby-identifier">index</span>(<span class="ruby-identifier">sell_price</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">buy_date</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">sell_date</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Sorry. There&#39;s no profit to be had here.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">buy_date</span>, <span class="ruby-identifier">sell_date</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-substrings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">substrings</span><span
+            class="method-args">(input_text, dictionary)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a hash listing each substring (case insensitive) that was found in
+the original string and how many times it was found.</p>
+
+<p>Sample:</p>
+
+<pre>dictionary = [&quot;below&quot;,&quot;down&quot;,&quot;go&quot;,&quot;going&quot;,&quot;horn&quot;,&quot;how&quot;,&quot;howdy&quot;,&quot;it&quot;,&quot;i&quot;,
+              &quot;low&quot;,&quot;own&quot;,&quot;part&quot;,&quot;partner&quot;,&quot;sit&quot;]
+
+substrings(&quot;below&quot;, dictionary)
+=&gt; {&quot;below&quot;=&gt;1, &quot;low&quot;=&gt;1}</pre>
+<dl class="rdoc-list note-list"><dt><code>input_text</code>
+<dd>
+<p>The text in which to search for substrings given by dictinary.</p>
+</dd><dt><code>dictionary</code>
+<dd>
+<p>The substrings for which to search in input_text.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="substrings-source">
+            <pre><span class="ruby-comment"># File substrings.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">substrings</span>(<span class="ruby-identifier">input_text</span>, <span class="ruby-identifier">dictionary</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
+  <span class="ruby-comment"># create array from input_text and remove non letter characters.</span>
+  <span class="ruby-identifier">words</span> = <span class="ruby-identifier">input_text</span>.<span class="ruby-identifier">split</span>
+  <span class="ruby-identifier">words</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[a-zA-Z]+/</span>).<span class="ruby-identifier">to_s</span> }
+  <span class="ruby-comment"># increment the value of result[substring] by 1 if it is a substring of word.</span>
+  <span class="ruby-identifier">words</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">dictionary</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">substring</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-identifier">substring</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">match</span>(<span class="ruby-node">/#{substring}/</span>).<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
