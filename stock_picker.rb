@@ -1,8 +1,8 @@
-# Recieves an array of Fixnums representing stock prices on consecutive days,
+# Receives an array of Fixnums representing stock prices on consecutive days,
 # and returns a two element array with the first element being the best day
 # (index of the price) to buy and the second being the best day to sell in
 # order to maximize profits.
-# 
+#
 # Sample:
 #   [1, 2, 3, 4]
 #   => [0, 3]
