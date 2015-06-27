@@ -45,8 +45,6 @@ describe '#stock_picker' do
     it "returns 'Please enter a valid array of prices (e.g. [1, 4, 2, 27]).'" do
       expect(stock_picker('ayy lmao')).to eq 'Please enter a valid array of prices (e.g. [1, 4, 2, 27]).'
     end
-  end
-  context 'with erroneous input' do
     it "returns 'Please enter a valid array of prices (e.g. [1, 4, 2, 27]).'" do
       expect(stock_picker(['ayy lmao'])).to eq 'Please enter a valid array of prices (e.g. [1, 4, 2, 27]).'
     end
