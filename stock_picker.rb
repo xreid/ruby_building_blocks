@@ -33,8 +33,6 @@ def stock_picker(prices)
       end
     end
   end
-  if buy_date == sell_date
-    return "Sorry. There's no profit to be had here."
-  end
+  return "Sorry. There's no profit to be had here." if buy_date == sell_date
   [buy_date, sell_date]
 end
