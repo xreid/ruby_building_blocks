@@ -26,3 +26,12 @@ dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","o
 substrings("below", dictionary)
 => {"below"=>1, "low"=>1}
 ```
+
+
+# [Advanced Building Blocks](http://www.theodinproject.com/ruby-programming/advanced-building-blocks?ref=lnav)
+bubble_sort and enumerable methods are from the following exercise: "Advanced Building Blocks".
+
+### bubble_sort
+Sorts an array by comparing each consecutive pair of elements and swapping them when the left element is greater than the right element. The method accepts an optional block specifying the method by which to sort the aray (e.g. <tt>{ |left, right| left.length - right.length }</tt> compares strings based on length). The result of the block is used to compare the elements in the same way as <=>.
+
+### enumerable methods

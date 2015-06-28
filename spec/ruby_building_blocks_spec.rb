@@ -69,3 +69,22 @@ describe '#substrings' do
     end
   end
 end
+
+describe '#bubble_sort' do
+  it 'sorts an unsorted array of Integers' do
+    expect(bubble_sort([1, 3, 6, 2, 4, 3])).to eq [1, 2, 3, 3, 4, 6]
+    expect(bubble_sort([4, 3, 78, 2, 0, 2])).to eq [0, 2, 2, 3, 4, 78]
+    expect(bubble_sort([4, 4, 78, 4, 4, 0])).to eq [0, 4, 4, 4, 4, 78]
+  end
+  it 'sorts an unsorted array strings' do
+    expect(bubble_sort(%w(a d a c r h))).to eq %w(a a c d h r)
+  end
+  it 'only accepts arrays' do
+    expect(bubble_sort('Hi Johnny')).to eq 'Please enter an array.'
+  end
+  context "when given a block" do
+    it 'sorts an array of strings by specifications of the block' do
+      expect(bubble_sort(%w(hi hello hey)) { |left, right| left.length - right.length }).to eq %w(hi hey hello)
+    end
+  end
+end

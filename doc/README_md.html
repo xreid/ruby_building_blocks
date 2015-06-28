@@ -82,35 +82,40 @@
 
 <h1 id="label-Ruby+Building+Blocks">Ruby Building Blocks<span><a href="#label-Ruby+Building+Blocks">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<h3 id="label-An+Exercise+from+The+Odin+Project"><a href="http://www.theodinproject.com/ruby-programming/building-blocks?ref=lnav">An Exercise from The Odin Project</a><span><a href="#label-An+Exercise+from+The+Odin+Project">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<h2 id="label-An+Exercise+from+The+Odin+Project"><a href="http://www.theodinproject.com/ruby-programming/building-blocks?ref=lnav">An Exercise from The Odin Project</a><span><a href="#label-An+Exercise+from+The+Odin+Project">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
 <p>The goal of this exercise is to gain a better understanding of Ruby through
 implementing three methods: caesar_cipher, stock_picker, and substrings.</p>
 
-<h4 id="label-caesar_cipher-28input_text-2C+shift_factor-29">caesar_cipher(input_text, shift_factor)<span><a href="#label-caesar_cipher-28input_text-2C+shift_factor-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h3 id="label-caesar_cipher-28input_text-2C+shift_factor-29">caesar_cipher(input_text, shift_factor)<span><a href="#label-caesar_cipher-28input_text-2C+shift_factor-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
 <p>Encrypts text via a simple Caesar Cipher. Each letter in the text is
 shifted by a specified number. For example, “a” with a shift factor of 3 is
 “d”, and “a” with a shift factor of -3 is “x”.</p>
 
-<h4 id="label-stock_picker-28prices-29">stock_picker(prices)<span><a href="#label-stock_picker-28prices-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h3 id="label-stock_picker-28prices-29">stock_picker(prices)<span><a href="#label-stock_picker-28prices-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
 <p>Receives an array of Fixnums representing stock prices on consecutive days,
 and returns a two element array with the first element being the best day
 (index of the price) to buy and the second being the best day to sell in
 order to maximize profits.</p>
 
-<p>Sample: <code> stock_picker([1, 2, 3, 4]) =&gt; [0, 3] </code></p>
+<p>Sample:</p>
 
-<h4 id="label-substrings-28input_text-2C+dictionary-29">substrings(input_text, dictionary)<span><a href="#label-substrings-28input_text-2C+dictionary-29">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<pre>stock_picker([1, 2, 3, 4])
+=&gt; [0, 3]</pre>
+
+<h3 id="label-substrings-28input_text-2C+dictionary-29">substrings(input_text, dictionary)<span><a href="#label-substrings-28input_text-2C+dictionary-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
 <p>Returns a hash listing each substring (case insensitive) that was found in
 the original string and how many times it was found.</p>
 
-<p>Sample: “` dictionary =
-[“below”,“down”,“go”,“going”,“horn”,“how”,“howdy”,“it”,“i”,“low”,“own”,“part”,“partner”,“sit”]</p>
+<p>Sample:</p>
 
-<p>substrings(“below”, dictionary) =&gt; {“below”=&gt;1, “low”=&gt;1} “`</p>
+<pre>dictionary = [&quot;below&quot;,&quot;down&quot;,&quot;go&quot;,&quot;going&quot;,&quot;horn&quot;,&quot;how&quot;,&quot;howdy&quot;,&quot;it&quot;,&quot;i&quot;,&quot;low&quot;,&quot;own&quot;,&quot;part&quot;,&quot;partner&quot;,&quot;sit&quot;]
+
+substrings(&quot;below&quot;, dictionary)
+=&gt; {&quot;below&quot;=&gt;1, &quot;low&quot;=&gt;1}</pre>
 </main>
 
 

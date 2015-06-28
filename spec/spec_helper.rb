@@ -92,4 +92,5 @@ config.expose_dsl_globally = true
 require_relative '../caesar_cipher'
 require_relative '../stock_picker'
 require_relative '../substrings'
+require_relative '../bubble_sort'
 end
