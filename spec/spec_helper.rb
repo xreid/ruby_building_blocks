@@ -89,8 +89,9 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 config.expose_dsl_globally = true
-require_relative '../caesar_cipher'
-require_relative '../stock_picker'
-require_relative '../substrings'
-require_relative '../bubble_sort'
+require_relative '../src/caesar_cipher'
+require_relative '../src/stock_picker'
+require_relative '../src/substrings'
+require_relative '../src/bubble_sort'
+require_relative '../src/enumerator'
 end

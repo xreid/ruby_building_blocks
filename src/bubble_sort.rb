@@ -7,12 +7,15 @@
 # +input+:: The array to be sorted
 def bubble_sort(input)
   return 'Please enter an array.' unless input.is_a? Array
+  # sorted only remains true after a full iteration with no swaps
   sorted = false
   until sorted
     sorted = true
     for i in 0...input.size - 1
+      # if there is a block, let comparison = the result, if not compare w/ <=>
       comparison = block_given? ? yield(input[i], input[i+1]) : input[i] <=> input[i + 1]
       if comparison > 0
+        #swap
         input[i], input[i + 1] = input[i + 1], input[i]
         sorted = false
       end

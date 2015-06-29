@@ -35,3 +35,12 @@ bubble_sort and enumerable methods are from the following exercise: "Advanced Bu
 Sorts an array by comparing each consecutive pair of elements and swapping them when the left element is greater than the right element. The method accepts an optional block specifying the method by which to sort the aray (e.g. <tt>{ |left, right| left.length - right.length }</tt> compares strings based on length). The result of the block is used to compare the elements in the same way as <=>.
 
 ### enumerable methods
+#### xr_each
+#### xr_each_with_index
+#### xr_select
+#### xr_all?
+#### xr_any?
+#### xr_none?
+#### xr_count
+#### xr_map
+#### xr_inject
